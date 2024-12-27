@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="rozcestnik.html">Menu</a> 
+    </div>
+
+    <div class="mid">
+        <form action="zapis.php" method="GET">
+            <p>Z jaké školy jde: <input list="skoly" name="skola"></p><br>
+            <datalist id="skoly">
+            </datalist>
+            
+            <p>O jaký obor má zájem: <input list="obory" name="obor"></p><br>
+            <datalist id="obory">
+            <option value="Technické lyceum">
+            <option value="Mechanik elektrotechnik">
+            <option value="Elektromechanik pro zařízení a přístroje">
+            <option value="Elektrikář">
+            <option value="Informační technologie">
+            <option value="Elektrotechnika">
+            <option value="Průmyslová ekologie">
+            <option value="Ekonomika a podnikání">
+            <option value="Sociální činnost – Sociálněsprávní činnost">
+            </datalist>
+            <input type="submit" class="button-3" role="button" value="Uložit">
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
