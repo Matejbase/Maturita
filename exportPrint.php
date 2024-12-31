@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="rozcestnik.html">Menu a menu</a> 
+        <a href="rozcestnik.html">Menu</a> 
     </div>
     <center>
     <h2>Náhled:</h2>
