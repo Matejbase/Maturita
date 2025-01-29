@@ -15,13 +15,15 @@
     
  
     <?php
-        $host = "localhost";
+        /*$host = "localhost";
         $user = "root";
         $passwd = "";
         $db = "mydb";
        
         $connect = new mysqli($host, $user, $passwd, $db) or die("Spojení se nezdařilo");
-        $connect->set_charset("UTF8") or die("Kódování NEnastaveno");
+        $connect->set_charset("UTF8") or die("Kódování NEnastaveno");*/
+
+        connect();
         
         $name = $_GET['jmeno'];
         $psswd = $_GET['heslo'];
@@ -54,7 +56,7 @@
         
     ?>
 
-        //<a href="rozcestnik.html"><input type="button" value="Na Hlavní "></a>
+        <a href="rozcestnik.html"><input type="button" value="Na Hlavní"></a>
 
 </body>
 </html>
