@@ -19,13 +19,7 @@
         <input type="submit" value="Zaregistrovat">
     </form>
     <?php
-        $host = "localhost";
-        $user = "root";
-        $passwd = "";
-        $db = "mydb";
-        
-        $connect = new mysqli($host, $user, $passwd, $db) or die("Spojení se nezdařilo");
-        $connect->set_charset("UTF8") or die("Kódování NEnastaveno");
+        require_once('database.php');
         
         if(isset($_GET['jmeno'])){
             $name = $_GET['jmeno'];

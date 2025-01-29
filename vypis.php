@@ -18,16 +18,9 @@
                 <th>počet</th>
             </tr>
     <?php
-        $host = "localhost";
-        $user = "root";
-        $passwd = "";
-        $db = "mydb";
+        require_once('database.php');
 
-        $connect = new mysqli($host, $user, $passwd, $db);
-        if ($connect->connect_error) {
-            die("Spojení se nezdařilo: " . $connect->connect_error);
-        }
-        $connect->set_charset("UTF8");
+        //$connect->set_charset("UTF8");
         
         $obory = array(
             "Technické lyceum", "Mechanik elektrotechnik",
