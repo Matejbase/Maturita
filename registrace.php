@@ -28,26 +28,31 @@
             $psswdHash = hash('md4', $psswd);
             $psswdHash = strtoupper($psswdHash);
         
-            $stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
-            $stmt->bind_param("ss", $name, $psswdHash);
+            //$stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
+            //$stmt->bind_param("ss", $name, $psswdHash);
 
             $select = $connect->prepare("SELECT * FROM users WHERE name = ?");
             $select->bind_param("s", $name);
             $select->execute();
             $result = $select->get_result();
             
-
-            
             if ($result->num_rows > 0) {
                 echo "Uživatel již existuje.";
                 exit();
             }
+            
             if ($stmt->execute()) {
+
+                $stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
+                $stmt->bind_param("ss", $name, $psswdHash);
+
                 echo "Registrace proběhla úspěšně!";
                 //$_SESSION['']
                 header("rozcestnik.html");
                 exit();
-            } else {
+            } 
+            
+            else {
                 echo "Chyba při registraci. Uživatel může již existovat.";
             }
         }
