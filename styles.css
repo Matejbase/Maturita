@@ -1,153 +1,112 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
-  font-family: sans-serif;
-  font-weight: bold;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 body {
-  background-image: url(illustration.jpg);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
 }
 
-.mid {
-  text-align: center;
-  background-color: #fff;
-  padding: 50px;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+
+@media (min-width: 1000px) {
+  html {
+      font-size:16px
+  }
 }
 
-header {
-  background-color: #003366;
-  color: white;
-  padding: 10px 0;
+
+/* Prihlaseni */
+
+
+nav {
+      
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
-.container {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
 }
+
 nav ul li {
-  margin-left: 20px;
+  margin: 0;
 }
+
 nav ul li a {
-  color: white;
   text-decoration: none;
-  padding: 5px 10px;
-}
-nav ul li a:hover {
-  background-color: #0055a5;
-  border-radius: 5px;
-}
-
-/* CSS */
-.button-3 {
-appearance: none;
-background-color: #2ea44f;
-border: 1px solid rgba(27, 31, 35, .15);
-border-radius: 6px;
-box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-box-sizing: border-box;
-color: #fff;
-cursor: pointer;
-display: inline-block;
-font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-font-size: 14px;
-font-weight: 600;
-line-height: 20px;
-padding: 6px 16px;
-position: relative;
-text-align: center;
-text-decoration: none;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-vertical-align: middle;
-white-space: nowrap;
-}
-
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
-box-shadow: none;
-outline: none;
-}
-
-.button-3:hover {
-background-color: #2c974b;
-}
-
-.button-3:focus {
-box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-outline: none;
-}
-
-.button-3:disabled {
-background-color: #94d3a2;
-border-color: rgba(27, 31, 35, .1);
-color: rgba(255, 255, 255, .8);
-cursor: default;
-}
-
-.button-3:active {
-background-color: #298e46;
-box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-}
-
-input[name="skola"], input[name="obor"] {
-  border: 2px solid #94d3a2;
-  border-radius: 10px 10px 10px 10px;
-  font-size: 18px;
-  padding: 5px;
-  height: 35px;
-  width: 350px;
-}
-
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
+  color: #658DB2;
+  padding: 1rem 1rem;
+  display: block;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
 }
 
-.topnav a:hover {
-  background-color: #94d3a2;
-  color: black;
+nav ul li a:hover {
+  color: #FDC023;
 }
 
-.topnav a.active {
-  background-color: #298e46;
-  color: white;
+
+
+@media (max-width: 700px) {
+  nav ul {
+      flex-direction: column;
+  }
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(pur_bgr_bw.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.login-form {
+  background-color: #669ECD;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.login-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.05em;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05em;
+
+}
+
+.login-form button:hover {
+  background-color: #FDC023;
 }
 
 
