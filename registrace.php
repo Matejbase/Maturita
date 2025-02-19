@@ -41,10 +41,10 @@
                 exit();
             }
             
-            if ($stmt->execute()) {
+            $stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
+            $stmt->bind_param("ss", $name, $psswdHash);
 
-                $stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
-                $stmt->bind_param("ss", $name, $psswdHash);
+            if ($stmt->execute()) {
 
                 echo "Registrace proběhla úspěšně!";
                 //$_SESSION['']
