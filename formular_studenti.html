@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Přihlášení na DOD</h1>
+    <form class="inputs" method="POST" action="studenti.php" target="responseFrame">
+        jmeno: <input name="jmeno"><br>
+        Prijmeni: <input name="prijmeni"><br>
+        Trida: <input name="trida"><br>
+        <input type="submit" value="Přihlásit se">
+    </form>
+
+    <form class="inputs" method="POST" action="vypis_studentu.php" target="responseFrame">
+        <input type="submit" value="vypsat přihlášené pomocníky">
+    </form>
+
+    <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
+
+
+</body>
+</html>
+    

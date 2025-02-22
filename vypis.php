@@ -20,7 +20,6 @@
     <?php
         require_once('database.php');
 
-        //$connect->set_charset("UTF8");
         
         $obory = array(
             "Technické lyceum", "Mechanik elektrotechnik",
