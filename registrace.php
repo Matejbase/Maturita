@@ -56,7 +56,7 @@
             $select->close();
 
             
-            $stmt = $connect->prepare("INSERT INTO users(name, password) VALUES(?, ?)");
+            $stmt = $connect->prepare("INSERT INTO users(name, password, permissions) VALUES(?, ?, 'user')");
             if (!$stmt) {
                 echo "Chyba při přípravě dotazu: " . $connect->error;
                 exit();

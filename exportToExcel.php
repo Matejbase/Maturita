@@ -1,3 +1,11 @@
+<?php
+$requiredPermission = 'user';
+require 'permission_load.php';// Oprávnění potřebné pro přístup
+require 'permission_check.php'; // Zkontroluj oprávnění
+
+// Zde začíná HTML kód
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -42,6 +50,9 @@
                     header('Expires: 0');
 
                     echo $output;
+                }
+                else{
+                    echo"nikdo nenií zapsaný.";
                 }
             }
         
