@@ -2,23 +2,33 @@
 <html lang="cs">
 <head>
     <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
+    <title>Formulář</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="rozcestnik.html">Rozcestník</a></li>
+            <li><a href="prihlaseni.html">Přihlášení</a></li>
+            <li><a href="#">Statistika</a></li>
+            <li><a href="#">Počet uchazečů o obor</a></li>
+            <li><a href="formular.html">Formulář</a></li>
+            <li><a href="#">Export</a></li>
+        </ul>
+    </nav>
 
-    <div class="topnav">
-        <a href="rozcestnik.html">Menu</a> 
-    </div>
 
-    <div class="mid">
-        <form action="zapis.php" method="GET">
-            <p>Z jaké školy jde: <input list="skoly" name="skola"></p><br>
-            <datalist id="skoly">
-            </datalist>
-            
-            <p>O jaký obor má zájem: <input list="obory" name="obor"></p><br>
+    <div class="form-container">
+
+        <form class="form-form" action="zapis.php" method="GET">
+            <label for="skola">Z jaké školy jde:</label>
+            <input id="skola" list="skoly" name="skola">
+            <datalist id="skoly"></datalist>
+            <label for="obor">O jaký obor má zájem:</label>
+            <input id="obor" list="obory" name="obor">
             <datalist id="obory">
             <option value="Technické lyceum">
             <option value="Mechanik elektrotechnik">
@@ -30,9 +40,11 @@
             <option value="Ekonomika a podnikání">
             <option value="Sociální činnost – Sociálněsprávní činnost">
             </datalist>
-            <input type="submit" class="button-3" role="button" value="Uložit">
+            <button type="submit" class="button-3" role="button" value="Zapsat">Uložit</button>
         </form>
+
+
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
