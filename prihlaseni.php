@@ -22,7 +22,6 @@ $id_session = session_id();
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-    sfsf
         
         if ($result->num_rows > 0) {
             $_SESSION['user_id'] = $user['id'];
