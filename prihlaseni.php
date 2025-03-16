@@ -11,9 +11,12 @@ $id_session = session_id();
         $name = trim($_POST['jmeno']);
         $psswd = $_POST['heslo'];
         
-        $psswd = iconv('UTF-8', 'UTF-16LE', $psswd);
-        $psswdHash = hash('md4', $psswd);
-        $psswdHash = strtoupper($psswdHash);
+        if (!preg_match("/^[a-z]+\.[a-z]+@purkynka\.cz$/", $name)) {
+            echo "Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
+            exit();
+        }
+        
+        $psswdHash = password_hash($password, PASSWORD_BCRYPT);
 
         //echo $name." ".$psswdHash;
         
@@ -22,6 +25,7 @@ $id_session = session_id();
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
+    
         
         if ($result->num_rows > 0) {
             $_SESSION['user_id'] = $user['id'];

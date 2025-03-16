@@ -1,3 +1,10 @@
+<?php
+$requiredPermission = 'student';
+require 'permission_load.php';
+require 'permission_check.php'; 
+?>
+
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -23,7 +30,7 @@
 
     <div class="form-container">
 
-        <form class="form-form" action="zapis.php" method="GET">
+        <form class="form-form" action="zapis.php" method="GET" target="responseFrame">
             <label for="skola">Z jaké školy jde:</label>
             <input id="skola" list="skoly" name="skola">
             <datalist id="skoly"></datalist>
@@ -42,7 +49,7 @@
             </datalist>
             <button type="submit" class="button-3" role="button" value="Zapsat">Uložit</button>
         </form>
-
+        <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
 
         <script src="script.js"></script>
     </div>

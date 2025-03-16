@@ -1,3 +1,9 @@
+<?php
+$requiredPermission = 'admin';
+require 'permission_load.php';
+require 'permission_check.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -11,14 +17,13 @@
 <body>
     <h1>Přihlášení na DOD</h1>
     <form class="inputs" method="POST" action="studenti.php" target="responseFrame">
-        jmeno: <input name="jmeno"><br>
-        Prijmeni: <input name="prijmeni"><br>
+        Uživatelské jmeno: <input name="jmeno"><br>
         Trida: <input name="trida"><br>
-        <input type="submit" value="Přihlásit se">
+        <input type="submit" value="Zapsat">
     </form>
 
     <form class="inputs" method="POST" action="vypis_studentu.php" target="responseFrame">
-        <input type="submit" value="vypsat přihlášené pomocníky">
+        <input type="submit" value="vypsat oprávněné uživatele">
     </form>
 
     <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
