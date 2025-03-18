@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 $id_session = session_id();
 //echo "ID session = $id_session<br />";
@@ -12,7 +10,7 @@ $id_session = session_id();
         $psswd = $_POST['heslo'];
         
         if (!preg_match("/^[a-z]+\.[a-z]+@purkynka\.cz$/", $name)) {
-            echo "Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
+            echo "<span style='color: #ffffff; height: 60px;'>Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
             exit();
         }
         
@@ -49,4 +47,5 @@ $id_session = session_id();
     
     $connect->close();
 ?>
-</body>
+
+

@@ -16,14 +16,16 @@ require 'permission_check.php';
     <title>Formulář</title>
 </head>
 <body>
+
+
     <nav>
         <ul>
-            <li><a href="rozcestnik.html">Rozcestník</a></li>
             <li><a href="prihlaseni.html">Přihlášení</a></li>
-            <li><a href="#">Statistika</a></li>
-            <li><a href="#">Počet uchazečů o obor</a></li>
-            <li><a href="formular.html">Formulář</a></li>
-            <li><a href="#">Export</a></li>
+            <li><a href="statistika.php">Statistika</a></li>
+            <li><a href="vypis.php">Počet uchazečů o obor</a></li>
+            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="exportToExcel.php">Export</a></li>
+            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
         </ul>
     </nav>
 
