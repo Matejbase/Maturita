@@ -1,8 +1,4 @@
-<?php
-$requiredPermission = 'admin';
-require 'permission_load.php';
-require 'permission_check.php'; 
-?>
+
 
 <!DOCTYPE html>
 <html lang="cs">

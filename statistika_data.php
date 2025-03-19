@@ -1,10 +1,11 @@
 <?php
 require_once('database.php');
 
-// Pole pro uchování výsledků
+
 $data = array();
 
-// Definice oborů pro dotaz
+header('Content-Type: application/json');
+
 $obory = array(
     "Technické lyceum", "Mechanik elektrotechnik", "Elektromechanik pro zařízení a přístroje",
     "Elektrikář", "Informační technologie", "Elektrotechnika", "Průmyslová ekologie",
@@ -19,12 +20,29 @@ foreach ($obory as $nazev_oboru) {
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-    // Přidání počtu uchazečů pro tento obor do pole
-    $data[$nazev_oboru] = $row['pocet'];
-
+    $data['obory'][$nazev_oboru] = $row['pocet'];
     $stmt->close();
 }
 
+
+//uchazeci celkově
+    $stmt = $connect->prepare("SELECT COUNT(*) AS pocet_cel FROM uchazec");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    $data['total'] = $row['pocet_cel']; 
+    $stmt->close();
+
+
+
+//top 10 škol - udělat
+
+
+
+
+
+
 // Přenos dat do JavaScriptu ve formátu JSON
-$json_data = json_encode($data);
+echo json_encode($data);
 ?>

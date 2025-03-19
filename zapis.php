@@ -35,8 +35,6 @@
             }
         }
        
-        
-        
         $connect->close();
     ?>
     </center>

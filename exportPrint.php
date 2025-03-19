@@ -14,9 +14,8 @@
         <ul>
             <li><a href="prihlaseni.html">Přihlášení</a></li>
             <li><a href="statistika.php">Statistika</a></li>
-            <li><a href="vypis.php">Počet uchazečů o obor</a></li>
             <li><a href="formular_uchazec.php">Formulář</a></li>
-            <li><a href="exportToExcel.php">Export</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
             <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
         </ul>
     </nav>

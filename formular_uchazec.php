@@ -1,8 +1,4 @@
-<?php
-$requiredPermission = 'student';
-require 'permission_load.php';
-require 'permission_check.php'; 
-?>
+
 
 
 <!DOCTYPE html>
@@ -22,9 +18,8 @@ require 'permission_check.php';
         <ul>
             <li><a href="prihlaseni.html">Přihlášení</a></li>
             <li><a href="statistika.php">Statistika</a></li>
-            <li><a href="vypis.php">Počet uchazečů o obor</a></li>
             <li><a href="formular_uchazec.php">Formulář</a></li>
-            <li><a href="exportToExcel.php">Export</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
             <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
         </ul>
     </nav>
@@ -53,7 +48,7 @@ require 'permission_check.php';
         </form>
         <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
 
-        <script src="script.js"></script>
+        <script src="skoly.js"></script>
     </div>
 </body>
 </html>
