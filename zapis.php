@@ -7,11 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <center>
-    <div class="topnav">
-        <a href="rozcestnik.html">Menu</a> 
-    </div>
-    
     <?php
         require_once('database.php');
         
@@ -28,15 +23,14 @@
             $stmt->bind_param("ss", $skola, $obor);
             
             if ($stmt->execute()) {
-                echo "Data pro tabulku 'uchazec' byla úspěšně uložena.<br>";
+                echo "<span style='color: #ffffff;'>Data pro tabulku 'uchazec' byla úspěšně uložena.";
             } 
             else {
-                echo "Chyba při ukládání dat do tabulky 'uchazec': " . $stmt->error . "<br>";
+                echo "<span style='color:rgb(255, 0, 0);'>Chyba při ukládání dat do tabulky 'uchazec': " . $stmt->error;
             }
         }
        
         $connect->close();
     ?>
-    </center>
 </body>
 </html>

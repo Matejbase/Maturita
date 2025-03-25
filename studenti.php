@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Kontrola formátu uživatelského jména (email)
         if (!preg_match("/^[a-z]+\.[a-z]+@purkynka\.cz$/", $name)) {
-            echo "Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
+            echo "<span style='color: #ffffff;'>Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
             exit();
         }
 

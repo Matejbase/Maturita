@@ -19,6 +19,18 @@ min-height: 100vh;
   }
 }
 
+.background-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(pur_bgr_bw.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 
 /* Prihlaseni */
 
@@ -61,16 +73,7 @@ nav ul li a:hover {
   }
 }
 
-.login-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(pur_bgr_bw.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
+
 
 .login-form {
   background-color: #669ECD;
@@ -110,3 +113,71 @@ nav ul li a:hover {
 }
 
 
+/* Formulář studenti */
+
+.button-form {
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.button-form label {
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.button-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.05em;
+}
+
+.button-form button {
+  padding: 10px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-form button:hover {
+  background-color: #FDC023;
+}
+
+
+/* Export */
+
+.button-export {
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.button-export input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.05em;
+}
+
+.button-export input {
+  padding: 10px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-export input:hover {
+  background-color: #FDC023;
+}

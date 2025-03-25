@@ -14,30 +14,29 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="bg-image">
-        <nav>
-            <ul>
-                <li><a href="prihlaseni.html">Přihlášení</a></li>
-                <li><a href="statistika.php">Statistika</a></li>
-                <li><a href="formular_uchazec.php">Formulář</a></li>
-                <li><a href="exportPrint.php">Export</a></li>
-                <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="prihlaseni.html">Přihlášení</a></li>
+            <li><a href="statistika.php">Statistika</a></li>
+            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
+            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+        </ul>
+    </nav>
+
+    <div class="background-container">
+        <h3 id="totalApplicants">Celkový počet uchazečů: <?php echo $total; ?></h3>
+        <script src="Total.js"></script>
+
+
+        <!-- Odkaz na náš JavaScript soubor -->
+        <script src="Chart1.js"></script>
+        <center>
+            <h2>Počet uchazečů podle oboru</h2>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </center>
+
     </div>
-
-
-
-    <h3 id="totalApplicants">Celkový počet uchazečů: <?php echo $total; ?></h3>
-    <script src="Total.js"></script>
-
-
-    <!-- Odkaz na náš JavaScript soubor -->
-    <script src="Chart1.js"></script>
-    <center>
-        <h2>Počet uchazečů podle oboru</h2>
-        <canvas id="myChart" width="400" height="400"></canvas>
-    </center>
 
 </body>
 </html>

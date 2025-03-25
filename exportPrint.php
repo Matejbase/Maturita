@@ -21,35 +21,44 @@
     </nav>
 
 
-    <center>
-    <h2>Náhled:</h2>
+    <div class="background-container">
+        <center>
 
-    <table class="table" border="5">
-            <tr>
-                <th>id uchazeče</th>
-                <th>škola</th>
-                <th>obor</th>
-            </tr>
-            <?php
-            
-            require_once('database.php');
 
-            $SQL = "SELECT * FROM uchazec";
-            $result = $connect->query($SQL);
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>".$row["iduchazec"]."</td>";
-                    echo "<td>".$row["skola"]."</td>";
-                    echo "<td>".$row["obor"]."</td>";
-                    echo "</tr>";
-                }
-            }
-            ?>
-        </table>
-        <form action="exportToExcel.php" method="post">   
-        <input class="button-3" type="submit" name="export_excel" value="Exportovat"><br>
+        <form class="button-export" action="exportToExcel.php" method="post">   
+            <input class="button-export" type="submit" name="export_excel" value="Exportovat">
         </form> 
-    </center>
+
+
+        <h2>Náhled:</h2>
+
+        <table class="table" border="5">
+                <tr>
+                    <th>id uchazeče</th>
+                    <th>škola</th>
+                    <th>obor</th>
+                </tr>
+                <?php
+                
+                require_once('database.php');
+
+                $SQL = "SELECT * FROM uchazec";
+                $result = $connect->query($SQL);
+                if($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>".$row["iduchazec"]."</td>";
+                        echo "<td>".$row["skola"]."</td>";
+                        echo "<td>".$row["obor"]."</td>";
+                        echo "</tr>";
+                    }
+                }
+                ?>
+            </table>
+
+        </center>
+
+    </div>
+
 </body>
 </html>
