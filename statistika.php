@@ -14,29 +14,32 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="prihlaseni.html">Přihlášení</a></li>
-            <li><a href="statistika.php">Statistika</a></li>
-            <li><a href="formular_uchazec.php">Formulář</a></li>
-            <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-        </ul>
-    </nav>
-
-    <div class="background-container">
-        <h3 id="totalApplicants">Celkový počet uchazečů: <?php echo $total; ?></h3>
-        <script src="Total.js"></script>
-
-
-        <!-- Odkaz na náš JavaScript soubor -->
-        <script src="Chart1.js"></script>
-        <center>
-            <h2>Počet uchazečů podle oboru</h2>
-            <canvas id="myChart" width="400" height="400"></canvas>
-        </center>
-
+    <div class="bg-image">
+        <nav>
+            <ul>
+                <li><a href="prihlaseni.html">Přihlášení</a></li>
+                <li><a href="statistika.php">Statistika</a></li>
+                <li><a href="formular_uchazec.php">Formulář</a></li>
+                <li><a href="exportPrint.php">Export</a></li>
+                <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            </ul>
+        </nav>
     </div>
+
+    <script src="Total.js"></script>
+    <h3 id="totalApplicants">Celkový počet uchazečů: </h3>
+    <h3 id="topObor">Nejžádanější obor: </h3>
+
+        <h2>Počet uchazečů podle oboru</h2>
+        <canvas id="ChartObory" width="400" height="400"></canvas>
+        <script src="ChartObory.js"></script>
+
+    
+
+        <h2>TOP 10 škol</h2>
+        <canvas id="ChartSkoly" width="400" height="400"></canvas>
+        <script src="ChartSkoly.js"></script>
+      
 
 </body>
 </html>

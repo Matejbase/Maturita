@@ -2,21 +2,21 @@ fetch('statistika_data.php')
     .then(response => response.json())
     .then(data => {
        
-        // Načítání štítků (labels) a hodnot (values) z JSON dat
-        var labels = Object.keys(data.obory);
-        var values = Object.values(data.obory);
+       
+        var labels = Object.keys(data.skoly);
+        var values = Object.values(data.skoly);
 
         // Konfigurace grafu
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('ChartSkoly').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'bar', // Typ grafu: koláčový graf
+                type: 'bar',
                 data: {
-                    labels: labels, // Popisky pro jednotlivé části (obory)
+                    labels: labels, 
                     datasets: [{
                         label: 'Počet uchazečů',
-                        data: values, // Počet uchazečů pro každý obor
-                        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'], // Barvy pro jednotlivé části
-                        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'], // Barva okraje
+                        data: values, 
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'], 
                         borderWidth: 1
                     }]
                 },
@@ -27,7 +27,7 @@ fetch('statistika_data.php')
                             y: {
                                 beginAtZero: true, // Osa Y začíná od nuly
                                 ticks: {
-                                    stepSize: 1, // Nastaví krok osy Y na 1 (pouze celá čísla)
+                                    stepSize: 1, 
                                     callback: function(value) {
                                         if (Number.isInteger(value)) {
                                             return value; // Zobrazí pouze celá čísla
@@ -40,4 +40,4 @@ fetch('statistika_data.php')
             }
         });
     })
-    //.catch(error => console.error('Chyba při načítání dat:', error)); // Chyba při načítání dat
+  

@@ -1,7 +1,6 @@
 <?php
 require_once('database.php');
 
-
 $data = array();
 
 header('Content-Type: application/json');
@@ -24,23 +23,40 @@ foreach ($obory as $nazev_oboru) {
     $stmt->close();
 }
 
+// Uchazeči celkově
+$stmt = $connect->prepare("SELECT COUNT(*) AS pocet_cel FROM uchazec");
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$data['total'] = $row['pocet_cel'];
+$stmt->close();
 
-//uchazeci celkově
-    $stmt = $connect->prepare("SELECT COUNT(*) AS pocet_cel FROM uchazec");
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+// TOP 10 škol
+$stmt = $connect->prepare("SELECT skola, COUNT(*) AS pocet_uchazecu 
+                                        FROM uchazec 
+                                        GROUP BY skola 
+                                        ORDER BY pocet_uchazecu DESC 
+                                        LIMIT 10");
+$stmt->execute();
+$result = $stmt->get_result();
+$data['skoly'] = array();
 
-    $data['total'] = $row['pocet_cel']; 
-    $stmt->close();
+while ($row = $result->fetch_assoc()) {
+    $data['skoly'][$row['skola']] = $row['pocet_uchazecu'];
+}
+$stmt->close();
 
-
-
-//top 10 škol - udělat
-
-
-
-
+// Top obor
+$stmt = $connect->prepare("SELECT obor, COUNT(*) AS pocet
+                            FROM uchazec
+                            GROUP BY obor
+                            ORDER BY pocet DESC
+                            LIMIT 1");
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$data['obor'] = $row['obor'];  
+$stmt->close();
 
 
 // Přenos dat do JavaScriptu ve formátu JSON
