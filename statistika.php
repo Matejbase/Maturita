@@ -8,38 +8,41 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="bg-image">
-        <nav>
-            <ul>
-                <li><a href="prihlaseni.html">Přihlášení</a></li>
-                <li><a href="statistika.php">Statistika</a></li>
-                <li><a href="formular_uchazec.php">Formulář</a></li>
-                <li><a href="exportPrint.php">Export</a></li>
-                <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-            </ul>
-        </nav>
+
+
+    <nav>
+        <ul>
+            <li><a href="prihlaseni.html">Přihlášení</a></li>
+            <li><a href="statistika.php">Statistika</a></li>
+            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
+            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hlavní obsah -->
+    <div class="background-container">
+        <div class="stats-container">
+            <h1 id="totalApplicants" style="color: #658DB2;">Celkový počet uchazečů: </h3>
+            <h2 id="topObor" style="color: #658DB2;">Nejžádanější obor: </h2>
+
+            <h2 style="color: #658DB2;">Počet uchazečů podle oboru</h2>
+            <canvas id="ChartObory" style="color: #658DB2;"></canvas>
+
+            <h1 style="color: #658DB2;">TOP 10 škol</h1>
+            <canvas id="ChartSkoly" style="color: #658DB2;"></canvas>
+        </div>
     </div>
 
+    <!-- Skripty pro grafy -->
     <script src="Total.js"></script>
-    <h3 id="totalApplicants">Celkový počet uchazečů: </h3>
-    <h3 id="topObor">Nejžádanější obor: </h3>
-
-        <h2>Počet uchazečů podle oboru</h2>
-        <canvas id="ChartObory" width="400" height="400"></canvas>
-        <script src="ChartObory.js"></script>
-
-    
-
-        <h2>TOP 10 škol</h2>
-        <canvas id="ChartSkoly" width="400" height="400"></canvas>
-        <script src="ChartSkoly.js"></script>
-      
+    <script src="ChartObory.js"></script>
+    <script src="ChartSkoly.js"></script>
 
 </body>
 </html>

@@ -28,7 +28,7 @@
             <input id="skola" list="skoly" name="skola" required>
             <datalist id="skoly"></datalist>
 
-            <label for="obor">O jaký obor má zájem:</label>
+            <!-- <label for="obor">O jaký obor má zájem:</label>
             <input id="obor" list="obory" name="obor" required>
             <datalist id="obory">
                 <option value="Technické lyceum">
@@ -40,7 +40,20 @@
                 <option value="Průmyslová ekologie">
                 <option value="Ekonomika a podnikání">
                 <option value="Sociální činnost – Sociálněsprávní činnost">
-            </datalist>
+            </datalist> -->
+
+            <p style="color: #ffffff;">O jaký obor má zájem:</p>
+    
+            <label><input type="checkbox" name="obor[]" value="Technické lyceum"> Technické lyceum</label><br>
+            <label><input type="checkbox" name="obor[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label><br>
+            <label><input type="checkbox" name="obor[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label><br>
+            <label><input type="checkbox" name="obor[]" value="Elektrikář"> Elektrikář</label><br>
+            <label><input type="checkbox" name="obor[]" value="Informační technologie"> Informační technologie</label><br>
+            <label><input type="checkbox" name="obor[]" value="Elektrotechnika"> Elektrotechnika</label><br>
+            <label><input type="checkbox" name="obor[]" value="Průmyslová ekologie"> Průmyslová ekologie</label><br>
+            <label><input type="checkbox" name="obor[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label><br>
+            <label><input type="checkbox" name="obor[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label><br>
+
 
             <button type="submit">Uložit</button>
         </form>

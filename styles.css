@@ -2,14 +2,18 @@ html {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
   font-size: 14px;
+  overflow-x: hidden; /* Zakáže posouvání do stran */
+  width: 100%;
 }
 
 body {
-margin: 0;
-padding: 0;
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden; /* Zakáže posouvání do stran */
+  width: 100%;
 }
 
 
@@ -27,9 +31,11 @@ min-height: 100vh;
   align-items: center;
   background-image: url(pur_bgr_bw.jpg);
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: center center;
-  background-size: cover;
+  background-attachment: fixed;
 }
+
 
 
 /* Prihlaseni */
@@ -59,6 +65,7 @@ nav ul li a {
   padding: 1rem 1rem;
   display: block;
   text-align: center;
+  transition: 0.3s;
 }
 
 nav ul li a:hover {
@@ -105,6 +112,7 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
   font-size: 1.05em;
+  transition: 0.3s;
 
 }
 
@@ -144,6 +152,7 @@ nav ul li a:hover {
   cursor: pointer;
   font-size: 1.05em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 .button-form button:hover {
@@ -176,8 +185,147 @@ nav ul li a:hover {
   cursor: pointer;
   font-size: 1.05em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 .button-export input:hover {
   background-color: #FDC023;
 }
+
+
+
+
+/* Export - tabulka */
+.table {
+  width: 80%;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #669ECD;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Středění obsahu */
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Tlačítko Export */
+.button-export input {
+  width: 100%;
+  padding: 12px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.button-export input:hover {
+  background-color: #FDC023;
+}
+
+/* Responzivita */
+@media (max-width: 700px) {
+  .table {
+      width: 95%;
+  }
+  .table-container {
+      width: 80%;
+  }
+  .table th, .table td {
+      padding: 8px;
+  }
+}
+
+
+
+
+
+/* Statistika */
+.stats-container {
+  background-color: #ffffff;
+  padding: 60px; /* Větší vnitřní okraje */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 900px; /* Omezíme maximální šířku */
+  width: 75%;
+  margin: 100px auto; /* Více prostoru nahoře a dole */
+  text-align: center;
+}
+
+
+canvas {
+  width: 90% !important; /* Grafy budou menší, ale stále čitelné */
+  max-height: 400px !important; /* Maximální výška pro lepší čitelnost */
+}
+
+
+
+@media (max-width: 1000px) {
+  .stats-container {
+    width: 85%;
+    padding: 40px;
+  }
+
+  canvas {
+    max-height: 350px !important; /* O něco menší na menších displejích */
+  }
+}
+
+@media (max-width: 700px) {
+  .stats-container {
+    width: 90%;
+    padding: 30px;
+    margin: 50px auto; /* Menší mezera na mobilech */
+  }
+
+  canvas {
+    max-height: 300px !important; /* Snížení výšky grafů */
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-container {
+    width: 95%;
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  canvas {
+    max-height: 250px !important; /* Ještě menší na mobilech */
+  }
+}
+
+
