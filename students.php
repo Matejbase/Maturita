@@ -2,20 +2,20 @@
 require_once('database.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['jmeno']) && !empty($_POST['trida'])) {
+    if (!empty($_POST['username']) && !empty($_POST['class'])) {
 
-        $name = trim($_POST['jmeno']);
+        $name = trim($_POST['username']);
         //$lastname = trim($_POST['prijmeni']);
-        $class = trim($_POST['trida']);
+        $class = trim($_POST['class']);
 
         // Kontrola formátu uživatelského jména (email)
         if (!preg_match("/^[a-z]+\.[a-z]+@purkynka\.cz$/", $name)) {
-            echo "<span style='color: #ffffff;'>Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
+            echo "Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.";
             exit();
         }
 
         // Kontrola, zda uživatelské jméno již existuje
-        $select = $connect->prepare("SELECT * FROM users WHERE username = ?");
+        $select = $connect->prepare("SELECT * FROM user WHERE username = ?");
         $select->bind_param("s", $name);
         $select->execute();
         $result = $select->get_result();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT); 
 
        
-        $passwordCheck = $connect->prepare("SELECT id FROM users WHERE password = ?");
+        $passwordCheck = $connect->prepare("SELECT id FROM user WHERE password = ?");
         $passwordCheck->bind_param("s", $passwordHash);
         $passwordCheck->execute();
         $passwordResult = $passwordCheck->get_result();
@@ -38,14 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         while ($passwordResult->num_rows > 0) {
             
-            $password = generateCustomPassword(8);
+            $password = generatePassword(8);
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
             $passwordCheck->execute();
             $passwordResult = $passwordCheck->get_result();
         }
 
         
-        $stmt = $connect->prepare("INSERT INTO users(username, class, password, permission) VALUES(?, ?, ?, 'student')");
+        $stmt = $connect->prepare("INSERT INTO user(username, class, password, permission) VALUES(?, ?, ?, 'student')");
         $stmt->bind_param("sss", $name, $class, $passwordHash);
 
         if ($stmt->execute()) {

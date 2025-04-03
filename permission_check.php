@@ -8,7 +8,8 @@ function hasPermission($permission) {
 // Zkontroluj, zda je definováno požadované oprávnění
 if (isset($requiredPermission) && !hasPermission($requiredPermission)) {
     //header("Location: no-access.php"); // Přesměrování na stránku s chybou
-    echo"nemáte oprávnění.";
+    echo "nemáte oprávnění.";
     exit;
 }
+
 ?>

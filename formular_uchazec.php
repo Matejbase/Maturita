@@ -1,3 +1,10 @@
+<?php
+$requiredPermission = 'student';
+require_once('permission_load.php');
+require_once('permission_check.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -5,60 +12,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
-    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
     <title>Formulář</title>
 </head>
 <body>
+
+
     <nav>
         <ul>
-            <li><a href="prihlaseni.html">Přihlášení</a></li>
-            <li><a href="statistika.php">Statistika</a></li>
+            <li><a href="login.html">Přihlášení</a></li>
+            <li><a href="statistics.php">Statistika</a></li>
             <li><a href="formular_uchazec.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
             <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            <li><a href="logout.php">odhlásit se</a></li>
         </ul>
     </nav>
 
-    <div class="background-container">
-        <form class="login-form" action="zapis.php" method="GET" target="responseFrame">
-            <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
-            
+
+    <div class="form-container">
+
+        <form class="form-form" action="entry.php" method="POST" target="responseFrame">
             <label for="skola">Z jaké školy jde:</label>
-            <input id="skola" list="skoly" name="skola" required>
+            <input id="skola" list="skoly" name="school">
             <datalist id="skoly"></datalist>
-
-            <!-- <label for="obor">O jaký obor má zájem:</label>
-            <input id="obor" list="obory" name="obor" required>
+            <label for="obor">O jaký obor má zájem:</label>
+            <input id="obor" list="obory" name="specialization">
             <datalist id="obory">
-                <option value="Technické lyceum">
-                <option value="Mechanik elektrotechnik">
-                <option value="Elektromechanik pro zařízení a přístroje">
-                <option value="Elektrikář">
-                <option value="Informační technologie">
-                <option value="Elektrotechnika">
-                <option value="Průmyslová ekologie">
-                <option value="Ekonomika a podnikání">
-                <option value="Sociální činnost – Sociálněsprávní činnost">
-            </datalist> -->
-
-            <p style="color: #ffffff;">O jaký obor má zájem:</p>
-    
-            <label><input type="checkbox" name="obor[]" value="Technické lyceum"> Technické lyceum</label><br>
-            <label><input type="checkbox" name="obor[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label><br>
-            <label><input type="checkbox" name="obor[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label><br>
-            <label><input type="checkbox" name="obor[]" value="Elektrikář"> Elektrikář</label><br>
-            <label><input type="checkbox" name="obor[]" value="Informační technologie"> Informační technologie</label><br>
-            <label><input type="checkbox" name="obor[]" value="Elektrotechnika"> Elektrotechnika</label><br>
-            <label><input type="checkbox" name="obor[]" value="Průmyslová ekologie"> Průmyslová ekologie</label><br>
-            <label><input type="checkbox" name="obor[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label><br>
-            <label><input type="checkbox" name="obor[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label><br>
-
-
-            <button type="submit">Uložit</button>
+            <option value="Technické lyceum">
+            <option value="Mechanik elektrotechnik">
+            <option value="Elektromechanik pro zařízení a přístroje">
+            <option value="Elektrikář">
+            <option value="Informační technologie">
+            <option value="Elektrotechnika">
+            <option value="Průmyslová ekologie">
+            <option value="Ekonomika a podnikání">
+            <option value="Sociální činnost – Sociálněsprávní činnost">
+            </datalist>
+            <label>Pohlaví:</label>
+            <input name="sex">
+            <button type="submit" class="button-3" role="button" value="Zapsat">Uložit</button>
         </form>
-    </div>
+        <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
 
-    <script src="skoly.js"></script>
+        <script src="schools.js"></script>
+    </div>
 </body>
 </html>

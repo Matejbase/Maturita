@@ -1,20 +1,13 @@
+<?php
+$requiredPermission = 'admin';
+require_once('permission_load.php');
+require_once('permission_check.php');
 
-
-
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
         require_once('database.php');
         
         if (isset($_POST["export_excel"])) {
 
-                $SQL = "SELECT * FROM uchazec";
+                $SQL = "SELECT * FROM uchazec_obor";
                 $result = mysqli_query($connect, $SQL);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -22,7 +15,6 @@
                         <table border="1">
                             <tr>
                                 <th>iduchazec</th>
-                                <th>skola</th>
                                 <th>obor</th>
                             </tr>
                     ';
@@ -30,9 +22,8 @@
                     while ($row = mysqli_fetch_array($result)) {
                         $output .= '
                             <tr>
-                                <td>'.$row["iduchazec"].'</td>
-                                <td>'.$row["skola"].'</td>
-                                <td>'.$row["obor"].'</td>
+                                <td>'.$row["uchazec_id"].'</td>
+                                <td>'.$row["obor_id"].'</td>
                             </tr>
                         ';
                     }
@@ -54,7 +45,3 @@
         
         $connect->close();
     ?>
-
-
-</body>
-</html>

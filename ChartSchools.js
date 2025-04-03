@@ -1,4 +1,4 @@
-fetch('statistika_data.php')
+fetch('statistics_data.php')
     .then(response => response.json())
     .then(data => {
        
@@ -7,7 +7,7 @@ fetch('statistika_data.php')
         var values = Object.values(data.skoly);
 
         // Konfigurace grafu
-        var ctx = document.getElementById('ChartSkoly').getContext('2d');
+        var ctx = document.getElementById('ChartSchools').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {

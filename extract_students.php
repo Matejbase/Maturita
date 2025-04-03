@@ -1,16 +1,16 @@
 <?php
 require_once('database.php');
 
-$SQL = "SELECT * FROM students";
+$SQL = "SELECT id, username, class FROM user where permission = 'student'";
 $result = $connect->query($SQL);
 
 if ($result->num_rows > 0) {
     echo "<table border='1'>";
-    echo "<tr><th>Jméno</th><th>Příjmení</th><th>Třída</th></tr>";
+    echo "<tr><th>id</th><th>Uživatelské jméno</th><th>Třída</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row["name"] . "</td>";
-        echo "<td>" . $row["lastname"] . "</td>"; 
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["username"] . "</td>"; 
         echo "<td>" . $row["class"] . "</td>";
         echo "</tr>";
     }

@@ -1,4 +1,4 @@
-fetch('statistika_data.php')
+fetch('statistics_data.php')
     .then(response => response.json())
     .then(data => {
 
@@ -6,7 +6,7 @@ fetch('statistika_data.php')
             document.getElementById("totalApplicants").textContent = 
                 "Celkový počet uchazečů: " + data.total;
 
-            document.getElementById("topObor").textContent = 
+            document.getElementById("topSpecialization").textContent = 
                 "Nejžádanější obor: " + data.obor;
         } 
         else {
