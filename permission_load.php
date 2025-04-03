@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     die("Nejste přihlášen. Session není nastavena.");
 }
 
-echo "ID uživatele v session: " . $_SESSION['user_id'] . "<br>";
+//echo "ID uživatele v session: " . $_SESSION['user_id'] . "<br>";
 
 $user_id = $_SESSION['user_id']; 
 

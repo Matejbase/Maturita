@@ -7,7 +7,7 @@ fetch('statistics_data.php')
         var values = Object.values(data.obory);
 
         // Konfigurace grafu
-        var ctx = document.getElementById('Chartspecialization').getContext('2d');
+        var ctx = document.getElementById('ChartSpecialization').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
