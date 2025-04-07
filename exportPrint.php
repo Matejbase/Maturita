@@ -1,5 +1,5 @@
 <?php
-$requiredPermission = 'student';
+$requiredPermission = ['student', 'admin'];
 require_once('permission_load.php');
 require_once('permission_check.php');
 ?>
@@ -29,29 +29,32 @@ require_once('permission_check.php');
             <input type="submit" name="export_excel" value="Exportovat">
         </form> 
 
-        <table class="table">
+        <table class="table" border="1">
             <tr>
                 <th>ID uchazeče</th>
-                <th>ID školy</th>
-                <th>ID oboru</th>
+                <th>Školy</th>
+                <th>Oboru</th>
             </tr>
             <?php
             require_once('database.php');
 
-            // Úprava SQL dotazu na vybrání ID uchazeče, školy a oboru
-            $SQL = "
-                SELECT uchazec.id AS uchazec_id, uchazec.skola_id, uchazec_obor.obor_id
-                FROM uchazec
-                LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
-            ";
+           
+            $stmt = $connect->prepare("SELECT uchazec.id AS uchazec_id, skola.nazev AS skola_nazev, obor.nazev AS obor_nazev
+                                                FROM uchazec
+                                                LEFT JOIN skola ON uchazec.skola_id = skola.id
+                                                LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
+                                                LEFT JOIN obor ON uchazec_obor.obor_id = obor.id");
 
-            $result = $connect->query($SQL);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+      
             if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>".$row["uchazec_id"]."</td>";  // Zobrazení ID uchazeče
-                    echo "<td>".$row["skola_id"]."</td>";  // Zobrazení ID školy
-                    echo "<td>".$row["obor_id"]."</td>";  // Zobrazení ID oboru
+                    echo "<td>".$row["uchazec_id"]."</td>";  
+                    echo "<td>".$row["skola_nazev"]."</td>";  
+                    echo "<td>".$row["obor_nazev"]."</td>";  
                     echo "</tr>";
                 }
             }
@@ -60,10 +63,9 @@ require_once('permission_check.php');
 
         <!-- Informace o pomocných tabulkách -->
         <div class="info">
-        <p><strong>Upozornění:</strong> V exportu budou zahrnuty také pomocné tabulky (např. školy a obory) s jejich ID. Tyto tabulky nejsou zobrazeny v náhledu, ale v exportu budou k dispozici pro lepší přehlednost.</p>
+            <p><strong>Upozornění:</strong> V exportu budou zahrnuty také pomocné tabulky (např. školy a obory) s jejich ID. Tyto tabulky nejsou zobrazeny v náhledu, ale v exportu budou k dispozici pro lepší přehlednost.</p>
             <p>Například pro ID školy <strong>1</strong> se jedná o školu "Škola A" a pro ID oboru <strong>2</strong> to bude "Technické lyceum". V exportovaném souboru budou tyto názvy uvedeny, aby bylo možné ID správně interpretovat.</p>
         </div>
-
 
     </div>
 </div>

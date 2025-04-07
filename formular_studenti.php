@@ -13,6 +13,7 @@ require_once('permission_check.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
     <title>Formulář</title>
+
 </head>
 <body>
 
@@ -34,14 +35,16 @@ require_once('permission_check.php');
         Trida: <input name="class"><br>
         <input type="submit" value="Zapsat">
     </form>
-
-    <form class="inputs" method="POST" action="extract_students.php" target="responseFrame">
-        <input type="submit" value="vypsat oprávněné uživatele">
-    </form>
-
     <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
 
+    <div class="table_students">
+    <?php
+    
+        require_once('extract_students.php');
+    
+    ?>
 
+   </div>
 </body>
 </html>
     

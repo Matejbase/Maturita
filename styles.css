@@ -159,6 +159,22 @@ nav ul li a:hover {
   background-color: #FDC023;
 }
 
+.table_students {
+  width: 80%;               
+  margin: 0 auto;           
+  border-collapse: collapse;
+}
+
+.table_students th, td {
+  padding: 10px;           
+  text-align: center;     
+  border: 1px solid #ddd; 
+}
+
+.table_students th {
+  background-color: #ffffff; 
+}
+
 
 /* Export */
 
