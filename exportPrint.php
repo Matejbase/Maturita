@@ -1,5 +1,8 @@
-
-
+<?php
+$requiredPermission = ['admin', 'student'];
+require_once('permission_load.php');
+require_once('permission_check.php');
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -27,7 +30,7 @@
 
 <div class="background-container">
     <div class="table-container">
-        <form class="button-export" action="exportToExcel.php" method="post" target="responesFrame">   
+        <form class="button-export" action="exportToExcel.php" method="post" target="responseFrame">   
             <input type="submit" name="export_excel" value="Exportovat">
         </form> 
         <iframe name="responseFrame" style="width: 100%; height: 60px; border: none;"></iframe>

@@ -1,4 +1,8 @@
-
+<?php
+$requiredPermission = ['admin', 'student'];
+require_once('permission_load.php');
+require_once('permission_check.php');
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -34,7 +38,7 @@
 
                 <!-- Z jaké školy jde -->
                 <label for="skola">Z jaké školy jde:</label>
-                <input id="skola" list="skoly" name="skola" required>
+                <input id="skola" list="skoly" name="school" required>
                 <datalist id="skoly"></datalist>
 
                 <p style="color: #658DB2;">O jaký obor má zájem:</p>

@@ -33,10 +33,10 @@ session_start();
         <div class="login-container">
             <form class="login-form" action="login.php" method="POST" target="responseFrame">
                 <label for="username">Uživatelské jméno:</label>
-                <input type="text" id="username" name="jmeno" required>
+                <input type="text" id="username" name="username" required>
 
                 <label for="password">Heslo:</label>
-                <input type="password" id="password" name="heslo" required>
+                <input type="password" id="password" name="password" required>
 
                 <button type="submit">Přihlásit se</button>
             </form>
