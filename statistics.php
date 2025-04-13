@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -13,17 +16,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
-
     <nav>
         <ul>
-            <li><a href="login.html">Přihlášení</a></li>
             <li><a href="statistics.php">Statistika</a></li>
             <li><a href="formular_uchazec.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
             <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-        </ul>
+                
+            <?php if (isset($_SESSION['user'])): ?>
+                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="logout.php">Odhlásit se</a></li>
+            <?php else: ?>
+                <li><a href="login_form.php">Přihlášení</a></li>
+            <?php endif; ?>
+            </ul>
     </nav>
+
+    
     <!-- Skripty pro grafy -->
     <script src="total.js"></script>
     <script src="ChartSpecialization.js"></script>

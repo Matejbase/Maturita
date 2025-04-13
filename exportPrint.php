@@ -15,20 +15,26 @@ require_once('permission_check.php');
 <body>
     <nav>
         <ul>
-            <li><a href="login.html">Přihlášení</a></li>
             <li><a href="statistics.php">Statistika</a></li>
             <li><a href="formular_uchazec.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
             <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+                
+            <?php if (isset($_SESSION['user'])): ?>
+                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="logout.php">Odhlásit se</a></li>
+            <?php else: ?>
+                <li><a href="login_form.php">Přihlášení</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
 
 <div class="background-container">
     <div class="table-container">
-        <form class="button-export" action="exportToExcel.php" method="post">   
+        <form class="button-export" action="exportToExcel.php" method="post" target="responesFrame">   
             <input type="submit" name="export_excel" value="Exportovat">
         </form> 
-
+        <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
         <table class="table" border="1">
             <tr>
                 <th>ID uchazeče</th>

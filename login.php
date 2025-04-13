@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
         $_SESSION['user'] = $name;
 
         echo "Přihlášeno: " . $_SESSION['user'] . "<br />";
-        header("Location: singboard.html");
+        //header("Location: singboard.html");
         exit();
     } 
     else {

@@ -7,9 +7,9 @@ function hasAnyPermission($requiredPermissions) {
     }
 
     // převod na pole
-    if (!is_array($requiredPermissions)) {
+    /*if (!is_array($requiredPermissions)) {
         $requiredPermissions = [$requiredPermissions];
-    }
+    }*/
 
     
     foreach ($requiredPermissions as $perm) {

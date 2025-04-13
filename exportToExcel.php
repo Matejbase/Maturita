@@ -1,5 +1,5 @@
 <?php
-$requiredPermission = 'admin';
+$requiredPermission = ['admin'];
 require_once('permission_load.php');
 require_once('permission_check.php');
 

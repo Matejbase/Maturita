@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -9,15 +10,22 @@
     <title>Rozcestník</title>
 </head>
 <body>
+ 
     <div class="bg-image">
         <nav>
             <ul>
-                <li><a href="login.html">Přihlášení</a></li>
                 <li><a href="statistics.php">Statistika</a></li>
                 <li><a href="formular_uchazec.php">Formulář</a></li>
                 <li><a href="exportPrint.php">Export</a></li>
                 <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-                <li><a href="logout.php">odhlásit se</a></li>
+                
+                <?php if (isset($_SESSION['user'])): ?>
+                    <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                    <li><a href="logout.php">Odhlásit se</a></li>
+                <?php else: ?>
+                    <li><a href="login_form.php">Přihlášení</a></li>
+                <?php endif; ?>
+                
             </ul>
         </nav>
     </div>
