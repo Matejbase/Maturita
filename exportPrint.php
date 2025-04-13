@@ -1,8 +1,4 @@
-<?php
-$requiredPermission = ['student', 'admin'];
-require_once('permission_load.php');
-require_once('permission_check.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -10,7 +6,7 @@ require_once('permission_check.php');
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Export - Náhled</title>
+    <title>Export</title>
 </head>
 <body>
     <nav>
@@ -34,8 +30,8 @@ require_once('permission_check.php');
         <form class="button-export" action="exportToExcel.php" method="post" target="responesFrame">   
             <input type="submit" name="export_excel" value="Exportovat">
         </form> 
-        <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
-        <table class="table" border="1">
+        <iframe name="responseFrame" style="width: 100%; height: 60px; border: none;"></iframe>
+        <table class="table">
             <tr>
                 <th>ID uchazeče</th>
                 <th>Školy</th>
@@ -46,11 +42,11 @@ require_once('permission_check.php');
 
            
             $stmt = $connect->prepare("SELECT uchazec.id AS uchazec_id, skola.nazev AS skola_nazev, obor.nazev AS obor_nazev
-                                                FROM uchazec
-                                                LEFT JOIN skola ON uchazec.skola_id = skola.id
-                                                LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
-                                                LEFT JOIN obor ON uchazec_obor.obor_id = obor.id");
-
+                                        FROM uchazec
+                                        LEFT JOIN skola ON uchazec.skola_id = skola.id
+                                        LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
+                                        LEFT JOIN obor ON uchazec_obor.obor_id = obor.id
+                                        ORDER BY uchazec.id DESC");
             $stmt->execute();
             $result = $stmt->get_result();
 

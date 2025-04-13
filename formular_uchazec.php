@@ -1,8 +1,4 @@
-<?php
-$requiredPermission = ['student', 'admin'];
-require_once('permission_load.php');
-require_once('permission_check.php');
-?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -32,34 +28,40 @@ require_once('permission_check.php');
     </nav>
 
     <div class="background-container">
-        <form class="login-form" action="entry.php" method="POST" target="responseFrame">
-            <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
-            
-            <label for="skola">Z jaké školy jde:</label>
-            <input id="skola" list="skoly" name="school">
-            <datalist id="skoly"></datalist>
+        <div class="login-container">
+            <form class="login-form" action="entry.php" method="POST" target="responseFrame">
+                <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
 
-            <p style="color: #ffffff;">O jaký obor má zájem:</p>
+                <!-- Z jaké školy jde -->
+                <label for="skola">Z jaké školy jde:</label>
+                <input id="skola" list="skoly" name="skola" required>
+                <datalist id="skoly"></datalist>
 
-            <!-- Ujistíme se, že checkboxy mají správný name atribut -->
-            <label><input type="checkbox" name="specialization[]" value="Technické lyceum"> Technické lyceum</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Elektrikář"> Elektrikář</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Informační technologie"> Informační technologie</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Elektrotechnika"> Elektrotechnika</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Průmyslová ekologie"> Průmyslová ekologie</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label><br>
-            <label><input type="checkbox" name="specialization[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label><br>
+                <p style="color: #658DB2;">O jaký obor má zájem:</p>
 
-            <p style="color: #ffffff;">Pohlaví:</p>
-            <label><input type="radio" name="sex" value="Muž">Muž</label><br>
-            <label><input type="radio" name="sex" value="Žena">Žena</label><br>
-            <label><input type="radio" name="sex" value="Jiné">Jiné</label><br>
-            <button type="submit">Uložit</button>
-        </form>
+                <!-- Checkboxy pro obory -->
+                <label><input type="checkbox" name="specialization[]" value="Technické lyceum"> Technické lyceum</label>
+                <label><input type="checkbox" name="specialization[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label>
+                <label><input type="checkbox" name="specialization[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label>
+                <label><input type="checkbox" name="specialization[]" value="Elektrikář"> Elektrikář</label>
+                <label><input type="checkbox" name="specialization[]" value="Informační technologie"> Informační technologie</label>
+                <label><input type="checkbox" name="specialization[]" value="Elektrotechnika"> Elektrotechnika</label>
+                <label><input type="checkbox" name="specialization[]" value="Průmyslová ekologie"> Průmyslová ekologie</label>
+                <label><input type="checkbox" name="specialization[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label>
+                <label><input type="checkbox" name="specialization[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label>
+
+
+                    <p style="color: #658DB2; display: inline-block;">Pohlaví:</p>
+                    <div style="display: inline-block; margin-right: 15px;">
+                    <label><input type="radio" name="sex" value="Muž">Muž</label>
+                    <label><input type="radio" name="sex" value="Žena">Žena</label>
+                    <label><input type="radio" name="sex" value="Jiné">Jiné</label>
+                </div>
+
+                <button type="submit">Uložit</button>
+            </form>
+        </div>
     </div>
-
     <script src="schools.js"></script>
 </body>
 </html>

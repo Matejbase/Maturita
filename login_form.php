@@ -27,15 +27,25 @@ session_start();
             <?php endif; ?>
         </ul>
     </nav>
+    
 
+    <div class="background-container">
+        <div class="login-container">
+            <form class="login-form" action="login.php" method="POST" target="responseFrame">
+                <label for="username">Uživatelské jméno:</label>
+                <input type="text" id="username" name="jmeno" required>
 
-    <div class="login-container">
-        <form class="login-form" action="login.php" method="POST" target="responseFrame">
-            <iframe name="responseFrame" style="width: 100%; height: 60px; border: none;"></iframe>
-            <label for="username">Uživatelské jméno:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Heslo:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Přihlásit se</button>
-        </form>
+                <label for="password">Heslo:</label>
+                <input type="password" id="password" name="heslo" required>
+
+                <button type="submit">Přihlásit se</button>
+            </form>
+            
+            <div class="info">
+                <p>Pro přístup k administraci se přihlaste svým uživatelským jménem a heslem.<br>Pokud nemáte účet, kontaktujte správce systému.</p>
+            </div>
+
+            <iframe name="responseFrame" style="width: 100%; height: 60px; border: none; margin-top: 20px;"></iframe>
+
+        </div>
     </div>

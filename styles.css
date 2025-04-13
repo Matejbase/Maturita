@@ -31,7 +31,7 @@ body {
   align-items: center;
   background-image: url(pur_bgr_bw.jpg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-attachment: fixed;
 }
@@ -82,30 +82,35 @@ nav ul li a:hover {
 
 
 
-.login-form {
-  background-color: #669ECD;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+.inputs {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  max-width: 320px;
+  width: 90%;
+  margin: 40px auto;
 }
 
-.login-form label {
+
+.inputs label {
   margin-bottom: 5px;
-  color: #ffffff;
+  color: #658DB2;
+  width: 300px;
+  text-align: left;
+  
 }
 
-.login-form input {
+.inputs input {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1.05em;
+  width: 300px;
 }
 
-.login-form button {
+.inputs button {
   padding: 10px;
   background-color: #FAB400;
   color: #3E6182;
@@ -113,10 +118,11 @@ nav ul li a:hover {
   cursor: pointer;
   font-size: 1.05em;
   transition: 0.3s;
+  width: 100%;
 
 }
 
-.login-form button:hover {
+.inputs button:hover {
   background-color: #FDC023;
 }
 
@@ -215,7 +221,7 @@ nav ul li a:hover {
 .table {
   width: 80%;
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 40px auto;
   border-collapse: collapse;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -239,6 +245,8 @@ nav ul li a:hover {
   background-color: #f1f1f1;
 }
 
+
+
 /* Středění obsahu */
 .table-container {
   display: flex;
@@ -251,26 +259,9 @@ nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 1100px;
-  margin: 40px auto;
   text-align: center;
 }
 
-/* Tlačítko Export */
-.button-export input {
-  width: 100%;
-  padding: 12px;
-  background-color: #FAB400;
-  color: #3E6182;
-  border: none;
-  cursor: pointer;
-  font-size: 1.05em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-.button-export input:hover {
-  background-color: #FDC023;
-}
 
 /* Responzivita */
 @media (max-width: 700px) {
@@ -342,5 +333,72 @@ canvas {
   canvas {
     max-height: 250px !important; /* Ještě menší na mobilech */
   }
+}
+
+
+
+/* Přihlášení */
+
+/* Menší přihlašovací kontejner */
+.login-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  max-width: 320px;
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Přihlašovací formulář */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form label {
+  font-size: 0.95em;
+  color: #658DB2;
+  text-align: left;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #FDC023;
+}
+
+/* Info text */
+.login-container .info {
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #3E6182;
+  text-align: left;
+}
+
+/* Responsivita */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 20px;
+  }
+
 }
 

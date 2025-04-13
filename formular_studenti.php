@@ -1,8 +1,4 @@
-<?php
-$requiredPermission = ['admin'];
-require_once('permission_load.php');
-require_once('permission_check.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -12,45 +8,82 @@ require_once('permission_check.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
-    <title>Formulář</title>
+    <title>Zápis</title>
 
 </head>
 <body>
 
-<div class="bg-image">
-        <nav>
-            <ul>
-                <li><a href="statistics.php">Statistika</a></li>
-                <li><a href="formular_uchazec.php">Formulář</a></li>
-                <li><a href="exportPrint.php">Export</a></li>
-                <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
-                
-                <?php if (isset($_SESSION['user'])): ?>
-                    <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
-                    <li><a href="logout.php">Odhlásit se</a></li>
-                <?php else: ?>
-                    <li><a href="login_form.php">Přihlášení</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
+
+    <nav>
+        <ul>
+            <li><a href="statistics.php">Statistika</a></li>
+            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
+            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            
+            <?php if (isset($_SESSION['user'])): ?>
+                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="logout.php">Odhlásit se</a></li>
+            <?php else: ?>
+                <li><a href="login_form.php">Přihlášení</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</div>
+
+
+
+<div class="background-container">
+
+    <div class="inputs">
+        <form class="login-form" method="POST" action="students.php" target="responseFrame">
+            
+            <label for="username">Uživatelské jméno:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="trida">Třída:</label>
+            <input type="text" id="trida" name="class" required>
+
+            <button type="submit">Zapsat</button>
+            <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
+        </form>
     </div>
 
-    <h1>Přihlášení na DOD</h1>
-    <form class="inputs" method="POST" action="students.php" target="responseFrame">
-        Uživatelské jmeno: <input name="username"><br>
-        Trida: <input name="class"><br>
-        <input type="submit" value="Zapsat">
-    </form>
-    <iframe name="responseFrame" style="width: 100%; height: 200px; border: none;"></iframe>
+    <div class="table-container">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Uživatelské jméno</th>
+                <th>Třída</th>
+            </tr>
+            <?php
+            require_once('database.php');
 
-    <div class="table_students">
-    <?php
-    
-        require_once('extract_students.php');
-    
-    ?>
+            $stmt = $connect->prepare("SELECT id, username, class FROM user WHERE permission = 'student'");
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-   </div>
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>".htmlspecialchars($row["id"])."</td>";
+                    echo "<td>".htmlspecialchars($row["username"])."</td>";
+                    echo "<td>".htmlspecialchars($row["class"])."</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>Žádný student není zapsaný.</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
 </body>
 </html>
     

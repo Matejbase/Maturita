@@ -1,7 +1,7 @@
 <?php
 require_once('database.php');
 
-$skola = trim($_POST['school']);  
+$skola = trim($_POST['skola']);  
 $obory = isset($_POST['specialization']) && is_array($_POST['specialization']) ? $_POST['specialization'] : [];
 $pohlavi = trim($_POST['sex']); 
 
