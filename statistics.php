@@ -8,7 +8,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistika uchazečů</title>
     <link rel="stylesheet" href="styles.css">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900&display=swap" rel="stylesheet">
@@ -19,9 +18,9 @@ session_start();
     <nav>
         <ul>
             <li><a href="statistics.php">Statistika</a></li>
-            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="form_applicants.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
                 <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->

@@ -4,7 +4,7 @@ require_once('database.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['password'])) {
     $name = trim($_POST['username']);
-    $psswd = $_POST['password'];
+    $psswd = trim($_POST['password']);
 
     if (!preg_match("/^[a-z]+\.[a-z]+@purkynka\.cz$/", $name)) {
         echo "<span style='color: #ffffff; height: 60px;'>Uživatelské jméno musí být ve formátu prijmeni.jmeno@purkynka.cz.</span>";
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
         $_SESSION['user'] = $name;
 
         echo "Přihlášeno: " . $_SESSION['user'] . "<br />";
-        //header("Location: singboard.html");
+        //header("Location: singboard.php");
         exit();
     } 
     else {

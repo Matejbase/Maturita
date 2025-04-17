@@ -15,9 +15,9 @@ require_once('permission_check.php');
     <nav>
         <ul>
             <li><a href="statistics.php">Statistika</a></li>
-            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="form_applicants.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
                 <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
@@ -34,38 +34,43 @@ require_once('permission_check.php');
             <input type="submit" name="export_excel" value="Exportovat">
         </form> 
         <iframe name="responseFrame" style="width: 100%; height: 60px; border: none;"></iframe>
-        <table class="table">
-            <tr>
-                <th>ID uchazeče</th>
-                <th>Školy</th>
-                <th>Oboru</th>
-            </tr>
-            <?php
-            require_once('database.php');
+        <form method="POST" action="delete_applicants.php" target="responseFrame">
+            <table class="table">
+                <tr>
+                    <th>ID uchazeče</th>
+                    <th>Škola</th>
+                    <th>Obor</th>
+                    <th>Označit</th>
+                </tr>
+                <?php
+                require_once('database.php');
 
-           
-            $stmt = $connect->prepare("SELECT uchazec.id AS uchazec_id, skola.nazev AS skola_nazev, obor.nazev AS obor_nazev
-                                        FROM uchazec
-                                        LEFT JOIN skola ON uchazec.skola_id = skola.id
-                                        LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
-                                        LEFT JOIN obor ON uchazec_obor.obor_id = obor.id
-                                        ORDER BY uchazec.id DESC");
-            $stmt->execute();
-            $result = $stmt->get_result();
+                $stmt = $connect->prepare("SELECT DISTINCT uchazec.id AS uchazec_id, skola.nazev AS skola_nazev, obor.nazev AS obor_nazev
+                                            FROM uchazec
+                                            LEFT JOIN skola ON uchazec.skola_id = skola.id
+                                            LEFT JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
+                                            LEFT JOIN obor ON uchazec_obor.obor_id = obor.id
+                                            ORDER BY uchazec.id DESC");
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-      
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>".$row["uchazec_id"]."</td>";  
-                    echo "<td>".$row["skola_nazev"]."</td>";  
-                    echo "<td>".$row["obor_nazev"]."</td>";  
-                    echo "</tr>";
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>".$row["uchazec_id"]."</td>";  
+                        echo "<td>".$row["skola_nazev"]."</td>";  
+                        echo "<td>".$row["obor_nazev"]."</td>";
+                        echo "<td><input type='checkbox' name='delete_a_id[]' value='".$row["uchazec_id"]."'></td>";  
+                        echo "</tr>";
+                    }
                 }
-            }
-            ?>
-        </table>
-
+                else {
+                    echo "<tr><td colspan='3'>Žádný uchazeč není zapsaný.</td></tr>";
+                }
+                ?>
+            </table>
+            <button type="submit" class="delete-button">Smazat označené</button>
+        </form>
         <!-- Informace o pomocných tabulkách -->
         <div class="info">
             <p><strong>Upozornění:</strong> V exportu budou zahrnuty také pomocné tabulky (např. školy a obory) s jejich ID. Tyto tabulky nejsou zobrazeny v náhledu, ale v exportu budou k dispozici pro lepší přehlednost.</p>

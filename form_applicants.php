@@ -18,9 +18,9 @@ require_once('permission_check.php');
     <nav>
         <ul>
             <li><a href="statistics.php">Statistika</a></li>
-            <li><a href="formular_uchazec.php">Formulář</a></li>
+            <li><a href="form_applicants.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="formular_studenti.php">Přidat/Smazat studenta</a></li>
+            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
                 <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
