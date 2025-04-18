@@ -6,12 +6,6 @@ function hasAnyPermission($requiredPermissions) {
         return false;
     }
 
-    // převod na pole
-    /*if (!is_array($requiredPermissions)) {
-        $requiredPermissions = [$requiredPermissions];
-    }*/
-
-    
     foreach ($requiredPermissions as $perm) {
         if (in_array($perm, $_SESSION['permissions'])) {
             return true;
@@ -21,7 +15,7 @@ function hasAnyPermission($requiredPermissions) {
     return false;
 }
 
-// Zkontrolujeme oprávnění
+// kontrola oprávnění
 if (isset($requiredPermission) && !hasAnyPermission($requiredPermission)) {
     //header("Location: no-access.php"); // Přesměrování na stránku s chybou
     echo "Nemáte oprávnění k přístupu na tuto stránku.";

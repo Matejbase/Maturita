@@ -21,7 +21,6 @@ $stmt->close();
 if ($user) {
     if (!empty($user['permission'])) {
         
-     
         $_SESSION['permissions'] = explode(",", $user['permission']);
         
     } 

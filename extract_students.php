@@ -1,8 +1,9 @@
 <?php
 require_once('database.php');
 
-$SQL = "SELECT id, username, class FROM user where permission = 'student'";
-$result = $connect->query($SQL);
+$stmt = $connect->prepare("SELECT id, username, class FROM user WHERE permission = 'student'");
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     echo "<table border='1'>";

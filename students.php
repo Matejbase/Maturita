@@ -5,7 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['username']) && !empty($_POST['class'])) {
 
         $name = trim($_POST['username']);
-        //$lastname = trim($_POST['prijmeni']);
         $class = trim($_POST['class']);
 
         // Kontrola formátu uživatelského jména (email)
