@@ -23,7 +23,7 @@ session_start();
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
-                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li> <!-- Zobrazíme uživatelské jméno -->
                 <li><a href="logout.php">Odhlásit se</a></li>
             <?php else: ?>
                 <li><a href="login_form.php">Přihlášení</a></li>
@@ -39,14 +39,16 @@ session_start();
     <!-- Hlavní obsah -->
     <div class="background-container">
         <div class="stats-container">
-            <h1 id="totalApplicants" style="color: #658DB2;">Celkový počet uchazečů: </h3>
-            <h2 id="topSpecialization" style="color: #658DB2;">Nejžádanější obor: </h2>
+            <h1 id="totalApplicants" style="color: #658DB2;">
+            <h2 id="topSpecialization" style="color: #658DB2;">
 
             <h2 style="color: #658DB2;">Počet uchazečů podle oboru</h2>
-            <canvas id="ChartSpecialization" style="color: #658DB2;"></canvas>
+            <canvas id="ChartSpecialization" width="400" height="300"></canvas>
+            <div id="specializationLegend"></div>
 
             <h1 style="color: #658DB2;">TOP 10 škol</h1>
-            <canvas id="ChartSchools" style="color: #658DB2;"></canvas>
+            <canvas id="ChartSchools" width="400" height="300"></canvas>
+            <div id="schoolsLegend"></div>
         </div>
     </div>
 

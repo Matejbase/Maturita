@@ -3,11 +3,11 @@ fetch('statistics_data.php')
     .then(data => {
 
         if (data.total !== undefined && data.obor !== undefined) {
-            document.getElementById("totalApplicants").textContent = 
-                "Celkový počet uchazečů: " + data.total;
+            document.getElementById("totalApplicants").innerHTML = 
+                "Celkový počet uchazečů: <span style='color: #FAB400;'>" + data.total + "</span>";
 
-            document.getElementById("topSpecialization").textContent = 
-                "Nejžádanější obor: " + data.obor;
+            document.getElementById("topSpecialization").innerHTML = 
+                "Nejžádanější obor: <span style='color: #FAB400;'>" + data.obor + "</span>";
         } 
         else {
             console.error('Chybí požadovaná data.');

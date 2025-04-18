@@ -23,7 +23,7 @@ require_once('permission_check.php');
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
-                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li> <!-- Zobrazíme uživatelské jméno -->
                 <li><a href="logout.php">Odhlásit se</a></li>
             <?php else: ?>
                 <li><a href="login_form.php">Přihlášení</a></li>
@@ -37,11 +37,11 @@ require_once('permission_check.php');
                 <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
 
                 <!-- Z jaké školy jde -->
-                <label for="skola">Z jaké školy jde:</label>
+                <p>Z jaké školy jde:</p>
                 <input id="skola" list="skoly" name="school" required>
                 <datalist id="skoly"></datalist>
 
-                <p style="color: #658DB2;">O jaký obor má zájem:</p>
+                <p>O jaký obor má zájem:</p>
 
                 <!-- Checkboxy pro obory -->
                 <label><input type="checkbox" name="specialization[]" value="Technické lyceum"> Technické lyceum</label>
@@ -55,8 +55,8 @@ require_once('permission_check.php');
                 <label><input type="checkbox" name="specialization[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label>
 
 
-                    <p style="color: #658DB2; display: inline-block;">Pohlaví:</p>
-                    <div style="display: inline-block; margin-right: 15px;">
+                <p>Pohlaví:</p>
+                <div class="sex-group">
                     <label><input type="radio" name="sex" value="Muž">Muž</label>
                     <label><input type="radio" name="sex" value="Žena">Žena</label>
                     <label><input type="radio" name="sex" value="Jiné">Jiné</label>

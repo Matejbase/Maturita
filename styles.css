@@ -36,6 +36,10 @@ body {
   background-attachment: fixed;
 }
 
+button, input { 
+  font-family: "Roboto Slab", serif;
+}
+
 
 
 /* Prihlaseni */
@@ -78,6 +82,22 @@ nav ul li a:hover {
   nav ul {
       flex-direction: column;
   }
+}
+
+
+
+nav ul li a.user {
+  pointer-events: none;
+  cursor: none;
+  text-decoration: none;
+  color: #658DB2;
+  padding: 1rem 1rem;
+  display: block;
+  text-align: center;
+}
+
+nav ul li a.user:hover {
+  color: none;
 }
 
 
@@ -182,6 +202,60 @@ nav ul li a:hover {
 }
 
 
+
+/* Stylizované checkboxy a radio buttony */
+
+input[type="checkbox"], input[type="radio"] {
+  accent-color: #FAB400;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+
+.login-form label {
+  display: flex;
+  align-items: center;
+  color: #3E6182;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
+
+.login-form p {
+  font-size: 1em;
+  font-weight: 600;
+  color: #658DB2;
+  margin: 30px 0 10px;
+}
+
+.login-form button {
+  padding: 12px;
+  background-color: #FAB400;
+  color: #3E6182;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.05em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #FDC023;
+}
+
+.sex-group {
+  display: flex;
+  gap: 15px;
+  margin: 8px 0 15px;
+  align-self: center;
+}
+
+
+
+
+
 /* Export */
 
 .button-export {
@@ -214,6 +288,23 @@ nav ul li a:hover {
   background-color: #FDC023;
 }
 
+.delete-button {
+  width: 300px;
+  padding: 10px;
+  background-color: #c93535;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.05em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+.delete-button:hover {
+  background-color: #df5d5d;
+}
 
 
 
@@ -243,6 +334,13 @@ nav ul li a:hover {
 
 .table tr:hover {
   background-color: #f1f1f1;
+}
+
+.table input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  accent-color: #df5d5d;
 }
 
 
@@ -297,6 +395,21 @@ canvas {
   width: 90% !important; /* Grafy budou menší, ale stále čitelné */
   max-height: 400px !important; /* Maximální výška pro lepší čitelnost */
 }
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+.legend-color {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
 
 
 

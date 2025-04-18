@@ -7,8 +7,11 @@ require_once('permission_check.php');
 <html lang="cs">
 <head>
     <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <meta charset="UTF-8">
     <title>Export</title>
 </head>
 <body>
@@ -20,7 +23,7 @@ require_once('permission_check.php');
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
-                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
                 <li><a href="logout.php">Odhlásit se</a></li>
             <?php else: ?>
                 <li><a href="login_form.php">Přihlášení</a></li>
@@ -35,6 +38,7 @@ require_once('permission_check.php');
         </form> 
         <iframe name="responseFrame" style="width: 100%; height: 60px; border: none;"></iframe>
         <form method="POST" action="delete_applicants.php" target="responseFrame">
+        <button type="submit" class="delete-button">Smazat označené</button>
             <table class="table">
                 <tr>
                     <th>ID uchazeče</th>
@@ -69,14 +73,7 @@ require_once('permission_check.php');
                 }
                 ?>
             </table>
-            <button type="submit" class="delete-button">Smazat označené</button>
         </form>
-        <!-- Informace o pomocných tabulkách -->
-        <div class="info">
-            <p><strong>Upozornění:</strong> V exportu budou zahrnuty také pomocné tabulky (např. školy a obory) s jejich ID. Tyto tabulky nejsou zobrazeny v náhledu, ale v exportu budou k dispozici pro lepší přehlednost.</p>
-            <p>Například pro ID školy <strong>1</strong> se jedná o školu "Škola A" a pro ID oboru <strong>2</strong> to bude "Technické lyceum". V exportovaném souboru budou tyto názvy uvedeny, aby bylo možné ID správně interpretovat.</p>
-        </div>
-
     </div>
 </div>
 
