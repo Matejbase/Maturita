@@ -20,7 +20,7 @@ session_start();
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
-                <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
                 <li><a href="logout.php">Odhlásit se</a></li>
             <?php else: ?>
                 <li><a href="login_form.php">Přihlášení</a></li>
