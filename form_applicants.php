@@ -61,6 +61,13 @@ require_once('permission_check.php');
                     <label><input type="radio" name="sex" value="Žena">Žena</label>
                     <label><input type="radio" name="sex" value="Jiné">Jiné</label>
                 </div>
+                <p>Ročník:</p>
+                <div class="grade-group">
+                    <label><input type="radio" name="grade" value="9">9</label>
+                    <label><input type="radio" name="grade" value="7">7</label>
+                    <label><input type="radio" name="grade" value="8">8</label>
+                    <label><input type="radio" name="grade" value="Jiné" checked>Jiné</label>
+                </div>
 
                 <button type="submit">Uložit</button>
             </form>

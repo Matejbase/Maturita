@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
     <title>Přidat obor</title>
 </head>
 <body>
-    <div class="background-container">
-
-    <div class="inputs">
-        <form class="login-form" method="POST" action="add_field.php" target="responseFrame">
+    <nav>
+        <ul>
+            <li><a href="statistics.php">Statistika</a></li>
+            <li><a href="form_applicants.php">Formulář</a></li>
+            <li><a href="exportPrint.php">Export</a></li>
+            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
+            <li><a href="fields.php">Přidat/Smazat obor</a></li>
             
+            <?php if (isset($_SESSION['user'])): ?>
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
+                <li><a href="logout.php">Odhlásit se</a></li>
+            <?php else: ?>
+                <li><a href="login_form.php">Přihlášení</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 
-            <label for="naze">Název oboru:</label>
-            <input type="text" id="trida" name="name" required>
+<div class="background-container">
 
-            <button type="submit">Zapsat</button>
-            <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
-        </form>
-    </div>
+        <div class="inputs">
+            <form class="login-form" method="POST" action="add_field.php" target="responseFrame">
+                
+
+                <label for="naze">Název oboru:</label>
+                <input type="text" id="trida" name="name" required>
+
+                <button type="submit">Zapsat</button>
+                <iframe name="responseFrame" style="width: 100%; height: 40px; border: none;"></iframe>
+            </form>
+        </div>
 
     
-</div>
     <div class="table-container">
         <form method="POST" action="remove_field.php" target="responseFrame">
         <button type="submit" class="delete-button">Smazat označené</button>
@@ -29,6 +48,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Název oboru</th>
+                    <th>Označit</th>
                 </tr>
                 <?php
                 require_once('database.php');
@@ -54,6 +74,7 @@
 
         </form>
     </div>
+</div>
 
 </body>
 </html>
