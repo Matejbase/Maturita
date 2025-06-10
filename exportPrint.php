@@ -21,6 +21,7 @@ require_once('permission_check.php');
             <li><a href="form_applicants.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
+            <li><a href="fields.php">Obory</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
                 <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>

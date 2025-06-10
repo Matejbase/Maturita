@@ -21,6 +21,7 @@ require_once('permission_check.php');
             <li><a href="form_applicants.php">Formulář</a></li>
             <li><a href="exportPrint.php">Export</a></li>
             <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
+            <li><a href="fields.php">Obory</a></li>
                 
             <?php if (isset($_SESSION['user'])): ?>
                 <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li> <!-- Zobrazíme uživatelské jméno -->
@@ -42,18 +43,19 @@ require_once('permission_check.php');
                 <datalist id="skoly"></datalist>
 
                 <p>O jaký obor má zájem:</p>
+                <div class="specialization">
 
-                <!-- Checkboxy pro obory -->
-                <label><input type="checkbox" name="specialization[]" value="Technické lyceum"> Technické lyceum</label>
-                <label><input type="checkbox" name="specialization[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label>
-                <label><input type="checkbox" name="specialization[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label>
-                <label><input type="checkbox" name="specialization[]" value="Elektrikář"> Elektrikář</label>
-                <label><input type="checkbox" name="specialization[]" value="Informační technologie"> Informační technologie</label>
-                <label><input type="checkbox" name="specialization[]" value="Elektrotechnika"> Elektrotechnika</label>
-                <label><input type="checkbox" name="specialization[]" value="Průmyslová ekologie"> Průmyslová ekologie</label>
-                <label><input type="checkbox" name="specialization[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label>
-                <label><input type="checkbox" name="specialization[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label>
-
+                    <!-- Checkboxy pro obory -->
+                    <label><input type="checkbox" name="specialization[]" value="Technické lyceum"> Technické lyceum</label>
+                    <label><input type="checkbox" name="specialization[]" value="Mechanik elektrotechnik"> Mechanik elektrotechnik</label>
+                    <label><input type="checkbox" name="specialization[]" value="Elektromechanik pro zařízení a přístroje"> Elektromechanik pro zařízení a přístroje</label>
+                    <label><input type="checkbox" name="specialization[]" value="Elektrikář"> Elektrikář</label>
+                    <label><input type="checkbox" name="specialization[]" value="Informační technologie"> Informační technologie</label>
+                    <label><input type="checkbox" name="specialization[]" value="Elektrotechnika"> Elektrotechnika</label>
+                    <label><input type="checkbox" name="specialization[]" value="Průmyslová ekologie"> Průmyslová ekologie</label>
+                    <label><input type="checkbox" name="specialization[]" value="Ekonomika a podnikání"> Ekonomika a podnikání</label>
+                    <label><input type="checkbox" name="specialization[]" value="Sociální činnost – Sociálněsprávní činnost"> Sociální činnost – Sociálněsprávní činnost</label>
+                </div>
 
                 <p>Pohlaví:</p>
                 <div class="sex-group">

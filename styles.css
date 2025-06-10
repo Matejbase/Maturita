@@ -206,7 +206,7 @@ nav ul li a.user:hover {
 /* Stylizované checkboxy a radio buttony */
 
 
-input[type="checkbox"], .grade-group input[type="radio"], .sex-group input[type="radio"] {
+.specialization input[type="checkbox"], .grade-group input[type="radio"], .sex-group input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     background-color: #f0f0f0;
@@ -223,7 +223,7 @@ input[type="checkbox"], .grade-group input[type="radio"], .sex-group input[type=
 }
 
 /* Styl po zaškrtnutí – jednobarevné kolečko */
-input[type="checkbox"]:checked, .grade-group input[type="radio"]:checked, .sex-group input[type="radio"]:checked {
+.specialization input[type="checkbox"]:checked, .grade-group input[type="radio"]:checked, .sex-group input[type="radio"]:checked {
     background-color: #FAB400;
     border-color: #FAB400;
 }
