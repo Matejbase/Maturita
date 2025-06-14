@@ -8,7 +8,7 @@ require_once('database.php');
 if (isset($_POST["export_excel"])) {
 
     // Dotaz na uchazeče, školy a obory
-    $stmt = $connect->prepare("SELECT uchazec.id as uchazec_id, uchazec.pohlavi, uchazec.skola_id, uchazec_obor.obor_id,
+    $stmt = $connect->prepare("SELECT uchazec.id as uchazec_id, uchazec.pohlavi, uchazec.skola_id, uchazec.trida, uchazec_obor.obor_id,
                                             skola.nazev as skola_nazev, obor.nazev as obor_nazev
                                         FROM uchazec    
                                         JOIN uchazec_obor ON uchazec.id = uchazec_obor.uchazec_id
@@ -26,6 +26,7 @@ if (isset($_POST["export_excel"])) {
                 <th>pohlaví</th>
                 <th>id_skola</th>
                 <th>skola_nazev</th>
+                <th>trida</th>
                 <th>id_obor</th>
                 <th>obor_nazev</th>
             </tr>
@@ -37,6 +38,7 @@ if (isset($_POST["export_excel"])) {
                 <td>'.$row["pohlavi"].'</td>
                 <td>'.$row["skola_id"].'</td>
                 <td>'.$row["skola_nazev"].'</td>
+                <td>'.$row["trida"].'</td>
                 <td>'.$row["obor_id"].'</td>
                 <td>'.$row["obor_nazev"].'</td>
             </tr>

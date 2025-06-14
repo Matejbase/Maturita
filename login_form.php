@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once('permission_check.php');
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -12,26 +14,11 @@ session_start();
     <title>Prihlášení</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="statistics.php">Statistika</a></li>
-            <li><a href="form_applicants.php">Formulář</a></li>
-            <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
-                
-            <?php if (isset($_SESSION['user'])): ?>
-                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
-                <li><a href="logout.php">Odhlásit se</a></li>
-            <?php else: ?>
-                <li><a href="login_form.php">Přihlášení</a></li>
-            <?php endif; ?>
-        </ul>
-    </nav>
     
 
     <div class="background-container">
         <div class="login-container">
-            <form class="login-form" action="login.php" method="POST" target="responseFrame">
+            <form class="login-form" action="login.php" method="POST">
                 <label for="username">Uživatelské jméno:</label>
                 <input type="text" id="username" name="username" required>
 
@@ -45,7 +32,7 @@ session_start();
                 <p>Pro přístup k administraci se přihlaste svým uživatelským jménem a heslem.<br>Pokud nemáte účet, kontaktujte správce systému.</p>
             </div>
 
-            <iframe name="responseFrame" style="width: 100%; height: 60px; border: none; margin-top: 20px;"></iframe>
+            
 
         </div>
     </div>

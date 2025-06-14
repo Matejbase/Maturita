@@ -18,7 +18,10 @@ function hasAnyPermission($requiredPermissions) {
 // kontrola oprávnění
 if (isset($requiredPermission) && !hasAnyPermission($requiredPermission)) {
     //header("Location: no-access.php"); // Přesměrování na stránku s chybou
-    echo "Nemáte oprávnění k přístupu na tuto stránku.";
-    exit;
+    echo '<div style="color:red; padding:1em; border:1px solid red; background:#fee;">';
+    echo 'Nemáte oprávnění zobrazit tuto stránku.';
+    echo '</div>';
+    exit; // zastaví další vykonávání stránky
+    
 }
 ?>

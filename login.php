@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
         exit();
     }
 
-    $stmt = $connect->prepare("SELECT id, password FROM user WHERE username=?");
+    $stmt = $connect->prepare("SELECT id, password, permission FROM user WHERE username=?");
     $stmt->bind_param("s", $name);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -21,8 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'], $_POST['pa
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user'] = $name;
 
-        echo "Přihlášeno: " . $_SESSION['user'] . "<br />";
-        //header("Location: singboard.php");
+        if (isset($user['permission']) && in_array($user['permission'], ['admin', 'student'])) {
+            $_SESSION['permissions'] = [$user['permission']];
+        } 
+        else {
+            $_SESSION['permissions'] = []; // žádná oprávnění, fallback
+        }
+
+        //echo "Přihlášeno: " . $_SESSION['user'] . "<br />";
+        header("Location: singboard.php");
         exit();
     } 
     else {

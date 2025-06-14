@@ -1,3 +1,8 @@
+<?php
+session_start();
+//require_once('permission_load.php');
+require_once('permission_check.php');
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -12,22 +17,31 @@
  
     <div class="bg-image">
         <nav>
-            <ul>
-                <li><a href="statistics.php">Statistika</a></li>
+        <ul>
+            <!-- Bez omezení -->
+            <li><a href="statistics.php">Statistika</a></li>
+
+            <!-- Pro adminy i studenty -->
+            <?php if (hasAnyPermission(['admin', 'student'])): ?>
                 <li><a href="form_applicants.php">Formulář</a></li>
-                <li><a href="exportPrint.php">Export</a></li>
+                <li><a href="exportPrint.php">Exportovat/Smazat</a></li>
+            <?php endif; ?>
+
+            <!-- Jen pro adminy -->
+           <?php if (hasAnyPermission(['admin'])): ?>
                 <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
                 <li><a href="fields.php">Obory</a></li>
-                
-                <?php if (isset($_SESSION['user'])): ?>
-                    <li>Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></li> <!-- Zobrazíme uživatelské jméno -->
-                    <li><a href="logout.php">Odhlásit se</a></li>
-                <?php else: ?>
-                    <li><a href="login_form.php">Přihlášení</a></li>
-                <?php endif; ?>
-                
-            </ul>
-        </nav>
+            <?php endif; ?>
+
+            <!-- Přihlášení / Odhlášení -->
+            <?php if (isset($_SESSION['user'])): ?>
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
+                <li><a href="logout.php">Odhlásit se</a></li>
+            <?php else: ?>
+                <li><a href="login_form.php">Přihlášení</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
     </div>
 </body>
 </html>

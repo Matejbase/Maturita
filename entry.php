@@ -4,6 +4,9 @@ require_once('database.php');
 $skola = trim($_POST['school']);  
 $obory = isset($_POST['specialization']) && is_array($_POST['specialization']) ? $_POST['specialization'] : [];
 $pohlavi = trim($_POST['sex']); 
+$trida = trim($_POST['class']);
+
+
 
 if (empty($skola) || empty($obory) || empty($pohlavi)) {
     echo "Neplatný vstup. Prosím zadejte všechny informace.<br>";
@@ -13,7 +16,7 @@ if (empty($skola) || empty($obory) || empty($pohlavi)) {
 
 else {
     $stmt = $connect->prepare("SELECT id FROM skola WHERE nazev = ?");
-    $stmt->bind_param("s", $skola);
+    $stmt->bind_param("s", $skola); 
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -37,8 +40,8 @@ else {
 
 
 
-    $stmt = $connect->prepare("INSERT INTO uchazec (pohlavi, skola_id) VALUES (?, ?)");
-    $stmt->bind_param("si", $pohlavi, $skola_id);
+    $stmt = $connect->prepare("INSERT INTO uchazec (pohlavi, skola_id, trida) VALUES (?, ?, ?)");
+    $stmt->bind_param("sis", $pohlavi, $skola_id, $trida);
     if (!$stmt->execute()) {
         echo "Chyba při přidávání uchazeče: " . $stmt->error . "<br>";
         exit;
@@ -76,8 +79,17 @@ else {
 
 
 
-    echo "Data byla úspěšně uložena.<br>";
+    
+   //vymaže aji hlášku 
+echo "<script>
+        setTimeout(() => {
+          window.top.location.reload();
+        }, 2000); // reload po 2 sekundách
+      </script>";
+
+       echo "Data byla úspěšně uložena.<br>";
 }
+
 
 $connect->close();
 ?>

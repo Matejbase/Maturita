@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('permission_check.php');
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -15,21 +16,36 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav>
+   <nav>
         <ul>
+            <!-- Bez omezení -->
             <li><a href="statistics.php">Statistika</a></li>
-            <li><a href="form_applicants.php">Formulář</a></li>
-            <li><a href="exportPrint.php">Export</a></li>
-            <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
-            <li><a href="fields.php">Obory</a></li>
+<<<<<<< HEAD
+
+            <!-- Pro adminy i studenty -->
+            <?php if (hasAnyPermission(['admin', 'student'])): ?>
+                <li><a href="form_applicants.php">Formulář</a></li>
+                <li><a href="exportPrint.php">Export</a></li>
+            <?php endif; ?>
+
+            <!-- Jen pro adminy -->
+           <?php if (hasAnyPermission(['admin'])): ?>
+                <li><a href="form_students.php">Přidat/Smazat studenta</a></li>
+                <li><a href="fields.php">Obory</a></li>
+            <?php endif; ?>
+
+            <!-- Přihlášení / Odhlášení -->
+=======
+           
                 
+>>>>>>> 197841bc2d3b463cc5ebd9a11950d23af502aead
             <?php if (isset($_SESSION['user'])): ?>
-                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li> <!-- Zobrazíme uživatelské jméno -->
+                <li><a href="#" class="user">Uživatel: <?php echo htmlspecialchars($_SESSION['user']); ?></a></li>
                 <li><a href="logout.php">Odhlásit se</a></li>
             <?php else: ?>
                 <li><a href="login_form.php">Přihlášení</a></li>
             <?php endif; ?>
-            </ul>
+        </ul>
     </nav>
 
     

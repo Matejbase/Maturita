@@ -3,7 +3,10 @@ session_start();
 require_once('database.php');
 
 if (!isset($_SESSION['user_id'])) {
-    die("Nejste přihlášen. Session není nastavena.");
+    echo '<div style="color:red; padding:1em; border:1px solid red; background:#fee;">';
+    echo 'Nemáte oprávnění zobrazit tuto stránku.';
+    echo '</div>';
+    exit;
 }
 
 //echo "ID uživatele v session: " . $_SESSION['user_id'] . "<br>";
