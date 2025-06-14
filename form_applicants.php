@@ -89,7 +89,7 @@ require_once('permission_check.php');
 =======
                 
 >>>>>>> 197841bc2d3b463cc5ebd9a11950d23af502aead
-
+  
                 <p>Pohlaví:</p>
                 <div class="sex-group">
                     <label><input type="radio" name="sex" value="Muž">Muž</label>
